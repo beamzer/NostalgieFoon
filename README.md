@@ -3,9 +3,9 @@ This python script is ment for a rotary phone with a Raspberry Pi Zero (can eith
 This is ment for elderly people because it brings back memories. By rotating the dial they will hear different tunes and music from the past.
 
 ## conversion process
-Photo's below show how to modify a PTT W65 wall mounted rotary phone to work with the raspberry pi zero.
+Photo's below show how to modify a PTT W65 wall mounted rotary phone to work with the Raspberry Pi Zero.
 Basically, pull it apart (gentely). Remove unnecessary components. Add the raspberry pi and connect the wires
-to the Adafruit Speaker bonnet.
+to the Adafruit Speaker bonnet. These are large photo's, click on them to zoom in and view details.
 
 ![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2606.jpg)
 ![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2607.jpg)
@@ -17,10 +17,10 @@ to the Adafruit Speaker bonnet.
 ![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_0844.gif)
 
 ## Connections
-
 For W65 (this is basically a T65 rotary phone, but wall mounted) with the
-ZeroPi and Adafruit SpeakerBonnet which uses GPIO 18,19 en 21, see:
+ZeroPi and Adafruit SpeakerBonnet which uses GPIO 18, 19 and 21, see:
 [SpeakerBonnet pinouts](https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/pinouts)
+
 Connect the Right-Out channel to the horn speaker
 
 rotary dial (Red and Yellow) connect to GPIO 23 and the other to GND
