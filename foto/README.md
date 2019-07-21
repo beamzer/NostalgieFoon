@@ -1,1 +1,1 @@
-Foto's van de aansluitingen
+Photo's showing the build
