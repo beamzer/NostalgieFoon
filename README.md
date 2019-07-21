@@ -1,76 +1,49 @@
 # NostalgieFoon
-Dit is de code voor een T65 draaischijf telefoon, met eern Raspberry Pi Zero W en daarop een Adafruit Speaker Bonnet. De telefoon is bedoelt voor in een ouderen huis en draaien aan de schijf geeft verschillende geluiden en muziek van vroeger te horen.
+This python script is ment for a rotary phone with a Raspberry Pi Zero (can either be the Wireless version or without).
+This is ment for elderly people because it brings back memories. By rotating the dial they will hear different tunes and music from the past.
 
-Tekst hieronder wordt nog aangepast naar hoe ik het heb gedaan.
+## conversion process
+Photo's below show how to modify a PTT W65 wall mounted rotary phone to work with the raspberry pi zero.
+Basically, pull it apart (gentely). Remove unnecessary components. Add the raspberry pi and connect the wires
+to the Adafruit Speaker bonnet.
 
-## Aansluitingen
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2606.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2607.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2608.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2609.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2610.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2623.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_2624.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/img_0844.gif)
 
-### Draaischijf
+## Connections
 
-De contacten van de draaischijf en de knoppen onder de hoorn zijn in de telefoon met elkaar verbonden. Om het script toch het verschil tussen het draaien aan de schijf en het oppakken van de hoorn te kunnen laten detecteren, moeten er bij de draaischijf enkele verbindingen worden gewijzigd.
+For W65 (this is basically a T65 rotary phone, but wall mounted) with the
+ZeroPi and Adafruit SpeakerBonnet which uses GPIO 18,19 en 21, see:
+[SpeakerBonnet pinouts](https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/pinouts)
+Connect the Right-Out channel to the horn speaker
 
-![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-draaischijf.jpg)
+rotary dial (Red and Yellow) connect to GPIO 23 and the other to GND
 
-* De rode draad van de draaischijf loskoppelen van de telefoon en verbinden met GPIO25 op de RPi.
-* De blauwe draad van de draaischijf loskoppelen van de telefoon en verbinden met Ground op de RPi.
-* De gele draad van de draaischijf loskoppelen en verbinden met "Rd" van de telefoon.
-* Een extra stukje draad gebruiken om "Bl" met "Rd" in de telefoon met elkaar te verbinden.
+solder a 100 nF condensator parallel to the switch to prevent jitter
+white button (earth switch) to GPIO 25
+the other side of the earth switch should go to GND
 
-### Luidspreker
+100 nF condensator over het contact solderen om "denderen" tegen te gaan
+horn contact to GPIO 4 and the other connection of the switch to GND
 
-Gebruik een audio kabel met jackplug (knip bijvoorbeeld de kabel van een koptelefoon door).
-
-![luidspreker](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-luidspreker.jpg)
-
-* Draad zonder mantel van de audiokabel naar de blauwe aansluiting (11) van de hoorn in de aansluitkamer.
-* Rode of witte draad van de audiokabel naar de rode aansluiting (12) van de hoorn in de aansluitkamer.
-
-De kleur van de draad in de audiokabel kan bij andere kabels verschillend zijn.
-
-### Aardknop en hoornknoppen
-
-![aardknop-hoornknoppen](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-hoornknoppen-aardknop.jpg)
-
-* Rode aansluiting (1) van de aansluitkamer naar Ground op de RPi.
-* Groene aansluiting (2) van de aansluitkamer naar GPIO23 op de RPi. (Aardtoets)
-* Blauwe aansluiting (3) van de aansluitkamer naar GPIO24 op de RPi. (Hoornknoppen)
 
 ## Software installeren
 
-* Wanneer je de Lite versie van Raspbian gebruikt, installeer dan nog Pygame, de Python library die nodig is om geluid af te spelen:
+* It's best to install Raspbian Lite and add Pygame which is needed to play sound from python:
 ```
 sudo apt install python-pygame
-```
-* Plaats *t65.py* en de map *audio* in */home/pi/t65*.
-* Om het programma automatisch uit te voeren wanneer de Raspberry Pi opstart, voeg je de volgende regel toe aan */etc/rc.local*, direct boven de regel ```exit 0```:
-```
-sudo amixer sset PCM,0 100% && cd /home/pi/t65 && python t65.py &
 ```
 
 ## Links
 
-Oorspronkelijk idee: https://github.com/tammojan/sommentelefoon
+Original idea by: [https://github.com/tammojan](https://github.com/tammojan/sommentelefoon)
+and then modified by: [https://github.com/ralphcrutzen](https://github.com/ralphcrutzen/PTT-Tafeltjes-Telefoon)
 
-PTT schema T65 toestellen: https://dutchtelecom.files.wordpress.com/2016/05/ptt_schema_t65_toestellen_1974-1987.pdf
+[PTT schematics for T65 phones] (https://dutchtelecom.files.wordpress.com/2016/05/ptt_schema_t65_toestellen_1974-1987.pdf)
 
-Overzicht GPIO pinnen Raspberry Pi 3B: http://www.raspberrypi-spy.co.uk/wp-content/uploads/2012/06/Raspberry-Pi-GPIO-Layout-Model-B-Plus-rotated-2700x900.png
-
-Detecteren of een knop is ingedrukt: http://razzpisampler.oreilly.com/ch07.html
-
-Interrupts: http://raspi.tv/2014/rpi-gpio-update-and-detecting-both-rising-and-falling-edges
-
-Herstarten van het huidige Python programma: https://www.daniweb.com/programming/software-development/code/260268/restart-your-python-program
-
-## Raspberry Pi Zero
-
-Het is me ook gelukt om een Raspberry Pi Zero in de telefoon in te bouwen. De enige kabel die dan nog uit de telefoon komt, is de usb kabel. Ik heb de volgende dingen gedaan:
-
-* Een Wifi dongle aangesloten en de volgende handleiding gebruikt om ssh toegang tot de Pi Zero te krijgen: https://davidmaitland.me/2015/12/raspberry-pi-zero-headless-setup/
-* De Pi Zero geschikt maken om analoge audio af te spelen. Hiervoor heb ik de volgende handleiding gebruikt: https://learn.adafruit.com/adding-basic-audio-ouput-to-raspberry-pi-zero?view=all#overview. Ik heb "Option 2. Manually Assigning PWM pins" gevolgd. Omdat de audio mono is, heb ik deze handleiding alleen voor GPIO13 toegepast.
-* De twee weerstanden en de twee condensatoren heb ik op een "Breakout Pi Zero" printplaatje gesoldeerd: https://www.abelectronics.co.uk/p/68/Breakout-Pi-Zero.
-* De bellen, inclusief de spoel, het volumewieltje en de koperkleurige grondplaat waarop deze bevestigd zijn, uit de T65 verwijderd. Hiervoor heb ik de twee metalen strips die in de printplaat op de bodem vast zitten, doorgeknipt. De usb kabel komt naar buiten door het gat waar voorheen het volumewieltje zat.
-* De 5 kabels van de draaischijf, aardknop en hoornknoppen heb ik niet meer in de aansluitkamer vastgemaakt, maar aan dezelfde schroeven in de binnenkant van de telefoon. Hiervoor moet je wel eerst de doorzichtige kap van de hoorknoppen losmaken.
-
-## To do
-
-* Het geluid klinkt veel te zacht met een Pi Zero. Uitzoeken of het nog harder kan. Wellicht door, naast GPIO13, ook GPIO18 te gebruiken?
