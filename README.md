@@ -33,7 +33,7 @@ the other side of the earth switch should go to GND
 horn contact to GPIO 4 and the other connection of the switch to GND
 
 
-## Software installeren
+## Software
 
 * It's best to install Raspbian Lite and add Pygame which is needed to play sound from python:
 ```
@@ -42,8 +42,7 @@ sudo apt install python-pygame
 
 ## Links
 
-Original idea by: [https://github.com/tammojan](https://github.com/tammojan/sommentelefoon)
-and then modified by: [https://github.com/ralphcrutzen](https://github.com/ralphcrutzen/PTT-Tafeltjes-Telefoon)
-
-[PTT schematics for T65 phones](https://dutchtelecom.files.wordpress.com/2016/05/ptt_schema_t65_toestellen_1974-1987.pdf)
+* Original idea by: [https://github.com/tammojan](https://github.com/tammojan/sommentelefoon)
+* and modified by: [https://github.com/ralphcrutzen](https://github.com/ralphcrutzen/PTT-Tafeltjes-Telefoon)
+* [PTT schematics for T65 phones](https://dutchtelecom.files.wordpress.com/2016/05/ptt_schema_t65_toestellen_1974-1987.pdf)
 
