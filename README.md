@@ -45,5 +45,5 @@ sudo apt install python-pygame
 Original idea by: [https://github.com/tammojan](https://github.com/tammojan/sommentelefoon)
 and then modified by: [https://github.com/ralphcrutzen](https://github.com/ralphcrutzen/PTT-Tafeltjes-Telefoon)
 
-[PTT schematics for T65 phones] (https://dutchtelecom.files.wordpress.com/2016/05/ptt_schema_t65_toestellen_1974-1987.pdf)
+[PTT schematics for T65 phones](https://dutchtelecom.files.wordpress.com/2016/05/ptt_schema_t65_toestellen_1974-1987.pdf)
 
