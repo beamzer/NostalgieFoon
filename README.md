@@ -1,7 +1,7 @@
-# PTT Tafeltjes Telefoon (afgekort "PTT")
-Verbind een T65 telefoon met een Raspberry Pi. Het gebruikte model is een Raspberry Pi 3 Model B. Besturingssysteem: Raspbian Jessie Lite.
+# NostalgieFoon
+Dit is de code voor een T65 draaischijf telefoon, met eern Raspberry Pi Zero W en daarop een Adafruit Speaker Bonnet. De telefoon is bedoelt voor in een ouderen huis en draaien aan de schijf geeft verschillende geluiden en muziek van vroeger te horen.
 
-Neem de hoorn op en kies met de draaischijf welk tafeltje je wil oefenen. Met de knop rechts onder de draaischijf (de aardtoets) oefen je alle tafeltjes door elkaar. Vervolgens hoor je minstens 10 sommen. Voer de uitkomst in via de draaischijf. Je hoort of het antwoord goed of fout is. Wanneer je een som fout beantwoordt, komt hij op een ander moment weer terug, totdat het antwoord goed is. Som niet goed verstaan? Met de aardtoets wordt de opgave nog eens herhaald. Het oefenen stopt door de hoorn neer te leggen en begint opnieuw door de hoorn op te nemen.
+Tekst hieronder wordt nog aangepast naar hoe ik het heb gedaan.
 
 ## Aansluitingen
 
@@ -9,7 +9,7 @@ Neem de hoorn op en kies met de draaischijf welk tafeltje je wil oefenen. Met de
 
 De contacten van de draaischijf en de knoppen onder de hoorn zijn in de telefoon met elkaar verbonden. Om het script toch het verschil tussen het draaien aan de schijf en het oppakken van de hoorn te kunnen laten detecteren, moeten er bij de draaischijf enkele verbindingen worden gewijzigd.
 
-![draaischijf](https://github.com/ralphcrutzen/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-draaischijf.jpg)
+![draaischijf](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-draaischijf.jpg)
 
 * De rode draad van de draaischijf loskoppelen van de telefoon en verbinden met GPIO25 op de RPi.
 * De blauwe draad van de draaischijf loskoppelen van de telefoon en verbinden met Ground op de RPi.
@@ -20,7 +20,7 @@ De contacten van de draaischijf en de knoppen onder de hoorn zijn in de telefoon
 
 Gebruik een audio kabel met jackplug (knip bijvoorbeeld de kabel van een koptelefoon door).
 
-![luidspreker](https://github.com/ralphcrutzen/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-luidspreker.jpg)
+![luidspreker](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-luidspreker.jpg)
 
 * Draad zonder mantel van de audiokabel naar de blauwe aansluiting (11) van de hoorn in de aansluitkamer.
 * Rode of witte draad van de audiokabel naar de rode aansluiting (12) van de hoorn in de aansluitkamer.
@@ -29,7 +29,7 @@ De kleur van de draad in de audiokabel kan bij andere kabels verschillend zijn.
 
 ### Aardknop en hoornknoppen
 
-![aardknop-hoornknoppen](https://github.com/ralphcrutzen/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-hoornknoppen-aardknop.jpg)
+![aardknop-hoornknoppen](https://github.com/beamzer/PTT-Tafeltjes-Telefoon/blob/master/foto/PTT-hoornknoppen-aardknop.jpg)
 
 * Rode aansluiting (1) van de aansluitkamer naar Ground op de RPi.
 * Groene aansluiting (2) van de aansluitkamer naar GPIO23 op de RPi. (Aardtoets)
