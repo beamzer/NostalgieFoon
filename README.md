@@ -23,14 +23,16 @@ ZeroPi and Adafruit SpeakerBonnet which uses GPIO 18, 19 and 21, see:
 
 Connect the Right-Out channel to the horn speaker
 
-rotary dial (Red and Yellow) connect to GPIO 23 and the other to GND
+* rotary dial (Red and Yellow) connect to GPIO 23
+* the other contact to GND
+* a rotary dial is basically a switch, which switches at a frequency of 10 events per second (10Hz)
 
-solder a 100 nF condensator parallel to the switch to prevent jitter
-white button (earth switch) to GPIO 25
-the other side of the earth switch should go to GND
+* solder a 100 nF condensator parallel to the switch to prevent jitter
+* white button (earth switch) to GPIO 25
+* the other side of the earth switch should go to GND
 
-100 nF condensator over het contact solderen om "denderen" tegen te gaan
-horn contact to GPIO 4 and the other connection of the switch to GND
+* horn contact to GPIO 4 and the other connection of the switch to GND
+* 100 nF condensator parallel to prevent jitter
 
 
 ## Software
